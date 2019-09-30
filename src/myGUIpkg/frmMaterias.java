@@ -93,9 +93,10 @@ public class frmMaterias {
 			public void actionPerformed(ActionEvent arg0) {
 				conexion = Conexion.conectar();
 				try {
-					preparedStatement = conexion.prepareStatement("Inser into materias (id_materia,nombre_materia) values (?,?)");
+					preparedStatement = conexion
+							.prepareStatement("Insert into materias (id_materia,nombre_materia) values (?,?)");
 					preparedStatement.setString(1,txtIdMateria.getText());
-					preparedStatement.setString(1,txtNombreMateria.getText());
+					preparedStatement.setString(2,txtNombreMateria.getText());
 					
 					int resultado = preparedStatement.executeUpdate();
 					if (resultado>0) {
@@ -108,7 +109,7 @@ public class frmMaterias {
 					}
 					
 				}catch (SQLException e) {
-					JOptionPane.showMessageDialog(null,"Error acceso a BD");
+					JOptionPane.showMessageDialog(null,"Error acceso a BD en agregar");
 				}
 				
 			}
